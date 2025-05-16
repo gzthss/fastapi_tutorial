@@ -12,12 +12,12 @@ app.include_router(auth.router)
 
 @app.get("/secure-data")
 async def get_secure_data(current_user: TokenData = Depends(get_current_user)):
-    """需要 JWT 认证的示例路由 | Example protected route."""
+    """Example protected route."""
     return {
-        "message": f"你好 {current_user.username}，这是敏感数据！| Hello {current_user.username}, this is sensitive data!",
-        "status": "已授权 | Authorized"
+        "message": f" Hello {current_user.username}, this is sensitive data!",
+        "status": "Authorized"
     }
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="127.0.0.1", port=8000)
 
